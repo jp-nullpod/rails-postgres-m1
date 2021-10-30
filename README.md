@@ -84,4 +84,18 @@ gem install pg
 ```
 
 ![after installation](./assets/pg.png)
-`
+
+## Tip 6 - Errors related to Lock Files
+
+If you have this error: "Could not open lock file "/tmp/.s.PGSQL.5432.lock"
+
+Possible Reasons:
+
+- A server crash may have kept this file in a locked state.
+- The user who has started the pg agent doesn't have permission to delete the lock file
+- Postgres is not able to write a file to /tmp directory because of permission issues
+- Another user has tried to open postgres on the same port
+
+Solutions:
+
+- Stop the service, delete ONLY the lockfile(.s.PGSQL.5432.lock) from /tmp directory and start that service again. If you the same error happens, please try reboot your mac
