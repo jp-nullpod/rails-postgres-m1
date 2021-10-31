@@ -42,11 +42,11 @@ So, clearly, we are using the arm64 for this installation of ruby
 
 If you do not have the native ARM version of Ruby 2.7.4, you may see something like:
 
-ruby 2.7.4p191 (2021-07-07 revision a21a3b7d23) [x86_64-darwin20] (Notice the "x86_64")
+`ruby 2.7.4p191 (2021-07-07 revision a21a3b7d23) [x86_64-darwin20]` (Notice the "x86_64")
 
-Then, you may uninstall that Ruby version using rbenv uninstall 2.7.4 and install ruby again using rbenvv install 2.7.4 (Just keep tip 1 in mind when you do so).
+Then, you may uninstall that Ruby version using `rbenv uninstall 2.7.4` and install ruby again using `rbenv install 2.7.4` (Just keep tip 1 in mind when you do so).
 
-Make sure to make that Ruby version global by using rbenv global. You may then open a new terminal window and check your ruby version using ruby -v.
+Make sure that rbenv's Ruby version is global by using `rbenv global`. You may then open a new terminal window and check your Ruby version using `ruby -v`.
 
 ## Tip 3 - Install libpq
 
@@ -77,13 +77,18 @@ Start the server
 `brew services start postgresql`
 
 
-Sometimes, the command brew services start postgresql may throw an error. You may then try to restart the server with brew services start postgresql. You can also restart the server by brew services stop postgresql followed by brew services start postgresql.
 
-Finally, you may check if everything is ok using psql -d postgres. If all is well, you would see something like: 
+Sometimes, the command `brew services start postgresql` may throw an error. You may then try to restart the server with `brew services restart postgresql`. 
 
+(Alternatively, you can also restart the server by `brew services stop postgresql` followed by `brew services start postgresql`)
+
+Finally, you may check if everything is ok using `psql -d postgres`. If all is well, you would see something like: 
+
+```
 psql (14.0, server 13.4) 
 Type "help" for help.
 postgres=# 
+```
 
 ### If the server is not starting
 
